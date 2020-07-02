@@ -1,0 +1,11 @@
+<h1 mat-dialog-title>{{ editando === 'CRIAR'? 'Nova': 'Editando' }} lista</h1>
+<div mat-dialog-content>
+  <mat-form-field style="background-color: #424242;">
+    <mat-label style="color: white;">Nome da lista: </mat-label>
+    <input matInput [(ngModel)]="data.lista.nome">
+  </mat-form-field>
+</div>
+<div mat-dialog-actions align='end'>
+  <button mat-button cdkFocusInitial (click)="onNoClick()">Voltar</button>
+  <button mat-button [mat-dialog-close]="data" style="color: #69f0ae;" (click)="salvar(data.lista, data.tipo)" cdkFocusInitia> {{ editando === 'CRIAR'? 'Criar': 'Editar'}}</button>
+</div>

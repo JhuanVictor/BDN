@@ -1,0 +1,27 @@
+<h1 mat-dialog-title>{{ editando === 'CRIAR'? 'Novo': 'Editando' }} Item</h1>
+<div mat-dialog-content>
+  <mat-form-field style="background-color: #424242; width: 70%;">
+    <mat-label style="color: white;">Nome do item: </mat-label>
+    <input matInput [(ngModel)]="data.item.nome">
+  </mat-form-field>
+</div>
+<div mat-dialog-content>
+  <mat-form-field style="background-color: #424242; width: 70%;">
+    <mat-label style="color: white;">Nome da subcategoria: </mat-label>
+    <input matInput [(ngModel)]="data.item.subcategoria">
+  </mat-form-field>
+</div>
+<div mat-dialog-content>
+  <mat-form-field style="background-color: #424242; width: 50%;">
+    <mat-label style="color: white;">Descrição: </mat-label>
+    <textarea matInput placeholder="Descrição do item..." [(ngModel)]="data.item.descricao"></textarea>
+  </mat-form-field>
+</div>
+<div mat-dialog-content style="background-color: #424242; width: 100%;">
+  <label for="myfile">Selecione uma imagem: </label>
+  <input type="file" name="myfile" (change)="fileChangeEvent($event)">
+</div>
+<div mat-dialog-actions align='end'>
+  <button mat-button cdkFocusInitial (click)="onNoClick()">Voltar</button>
+  <button mat-button style="color: #69f0ae;" (click)="salvar(data.item, data.tipo)">{{ editando === 'CRIAR'? 'Criar': 'Editar' }}</button>
+</div>
